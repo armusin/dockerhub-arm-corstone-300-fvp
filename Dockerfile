@@ -16,7 +16,7 @@ ENV USER=ubuntu
 RUN useradd --create-home -s /bin/bash -m $USER && echo "$USER:ubuntu" | chpasswd && adduser $USER sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-COPY FVP_Corstone_SSE-300_${FVP_MAJ_VER}.${FVP_MIN_VER}_${FVP_REV_VER}_Linux64.tgz .
+RUN wget https://developer.arm.com/-/cdn-downloads/permalink/FVPs-Corstone-IoT/Corstone-300/FVP_Corstone_SSE-300_${FVP_MAJ_VER}.${FVP_MIN_VER}_${FVP_REV_VER}_Linux64.tgz
 RUN tar xf FVP_Corstone_SSE-300_${FVP_MAJ_VER}.${FVP_MIN_VER}_${FVP_REV_VER}_Linux64.tgz
 RUN mkdir -p /home/ubuntu/FVP
 RUN ./FVP_Corstone_SSE-300.sh --i-agree-to-the-contained-eula --no-interactive --destination /home/ubuntu/FVP
