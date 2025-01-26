@@ -1,8 +1,8 @@
 FROM ubuntu:22.04
 
 ARG FVP_MAJ_VER=11
-ARG FVP_MIN_VER=24
-ARG FVP_REV_VER=13
+ARG FVP_MIN_VER=27
+ARG FVP_REV_VER=42
 
 RUN if ! [ "$(arch)" = "x86_64" ] ; then exit 1; fi
 
