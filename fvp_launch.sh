@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-export PATH=/home/ubuntu/FVP/models/Linux64_GCC-6.4/:$PATH
-export LD_LIBRARY_PATH=/home/ubuntu/FVP/models/Linux64_GCC-6.4/:$LD_LIBRARY_PATH
+export PATH=/home/ubuntu/FVP/models/Linux64_GCC-9.3/:$PATH
+export LD_LIBRARY_PATH=/home/ubuntu/FVP/models/Linux64_GCC-9.3/:$LD_LIBRARY_PATH
 
 if [[ -z ${ETHOS_U65} ]]; then
   echo "(default) Launching Ethos-U55 version."
@@ -18,6 +18,7 @@ if [[ -z ${NON_INTERACTIVE} ]]; then
     -C mps3_board.telnetterminal2.start_telnet=0 \
     -C mps3_board.telnetterminal5.start_telnet=0 \
     -C mps3_board.visualisation.disable-visualisation=1 \
+    -f vht_config.txt \
     $* &
 
   PID=$?
@@ -53,5 +54,6 @@ else
     -C mps3_board.uart1.shutdown_on_eot=1 \
     -C mps3_board.uart2.shutdown_on_eot=1 \
     -C mps3_board.uart5.shutdown_on_eot=1 \
+    -f vht_config.txt \
     $*
 fi
